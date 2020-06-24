@@ -1,8 +1,8 @@
 
 .sidebar-header{
     font-weight: bold;
-    color: white;
-    background-color: rgba(65,105,225);
+    color: black;
+    background-color: #f5ca5c;
     text-align: center;
     padding: 4px;
 }
