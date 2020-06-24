@@ -1,9 +1,18 @@
+
 function openIV() {
-    document.getElementById("iv-pump").style.width = "20%";
+    document.getElementById("main-content").style.paddingLeft = "250px";
+    document.getElementById("iv-sidebar").style.width = "250px";
+    document.getElementById("iv-sidebar").style.display = "block";
+    document.getElementById("iv-toggle-on").style.display = "none";
+    document.getElementById("iv-toggle-off").style.display = "block";
   }
 
 function closeIV() {
-    document.getElementById("iv-pump").style.width = "0%";
+    document.getElementById("main-content").style.paddingLeft = "0px";
+    document.getElementById("iv-sidebar").style.width = "0px";
+    document.getElementById("iv-sidebar").style.display = "none";
+    document.getElementById("iv-toggle-on").style.display = "block";
+    document.getElementById("iv-toggle-off").style.display = "none";
 }
 
 function editIV() {
