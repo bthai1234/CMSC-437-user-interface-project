@@ -2,7 +2,6 @@
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
-        <script src="scripts.js"></script>
         <meta charset="utf-8">
         <title>Central ICU Patient Monitoring System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -16,53 +15,120 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+        <script src="scripts.js"></script>
     </head>
+
     <body>
         <div class="container-fluid">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 <a class="navbar-brand" href="https://www.umbc.edu"><img src="UMBCretrievers_LOGO.jpg" width="40" hight="40"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                  <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                  <ul class="navbar-nav">
-                    <li class="nav-item patientInfo">
-                        <a id="p-info" class="nav-link" href="#">Patient Info</a>
-                      </li>
-                    <li class="nav-item patientHist">
-                      <a id="p-hist" class="nav-link" href="#">Patient History</a>
-                    </li>
-                    <li class="nav-item x-rays">
-                        <a id="x-r" class="nav-link" href="#">X-Rays</a>
-                    </li>
-                    <li class="nav-item iv-pump">
-                        <a id="iv" class="nav-link" href="#">IV Pump</a>
-                    </li>
-                    <li class="nav-item Ventilator">
-                        <a id="vent" class="nav-link" href="#">Ventilator</a>
-                    </li>
-                  </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item patientInfo">
+                            <a id="p-info" class="nav-link" onclick="openInfo()" href="#">Patient Info</a>
+                        </li>
+                        <li class="nav-item patientHist">
+                            <a id="p-hist" class="nav-link" href="#">Patient History</a>
+                        </li>
+                        <li class="nav-item x-rays">
+                            <a id="x-r" class="nav-link" href="#">X-Rays</a>
+                        </li>
+                        <li class="nav-item iv-pump">
+                            <a id="iv" class="nav-link" href="#">IV Pump</a>
+                        </li>
+                        <li class="nav-item Ventilator">
+                            <a id="vent" class="nav-link" href="#">Ventilator</a>
+                        </li>
+                    </ul>
                 </div>  
             </nav>
 
+
+            <div id="patient-info" class="overlay">
+                <a class="closebtn" href="javascript:void(0)" onclick="closeInfo()">&times;</a>
+                <div class="overlay-content">
+                    <div id="patient-info-form" class="container text-light">
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">First Name:</div>
+                            <div id="first-name" class="col-sm">
+                                <div class="value">Matthew</div>
+                                <div class="field">
+                                    <input type="text" name="first-name-edit" id="first-name-edit">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">Last Name:</div>
+                            <div id="last-name" class="col-sm">
+                                <div class="value">Denaburg</div>
+                                <div class="field">
+                                    <input type="text" name="last-name-edit" id="last-name-edit">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">Birth Date:</div>
+                            <div id="birth-date" class="col-sm">
+                                <div class="value">04/01/2020</div>
+                                <div class="field">
+                                    <input type="date" name="birth-date-edit" id="birth-date-edit">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">Height:</div>
+                            <div id="height" class="col-sm">
+                                <div class="value">6 ft.</div>
+                                <div class="field">
+                                    <input type="number" name="height-edit" id="height-edit">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">Weight:</div>
+                            <div id="weight" class="col-sm">
+                                <div class="value">100 lb.</div>
+                                <div class="field">
+                                    <input type="number" name="weight-edit" id="weight-edit">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">Phone:</div>
+                            <div id="phone" class="col-sm">
+                                <div class="value">410-455-1000</div>
+                                <div class="field">
+                                    <input type="tel" name="phone-edit" id="name-edit" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm font-weight-bold">Address</div>
+                            <div id="address" class="col-sm">
+                                <div class="value">UMBC<br>1000 Hilltop Cir<br>Baltimore, MD 21250</div>
+                                <div class="field">
+                                    <textarea name="address-edit" rows="3" cols="30" id="address"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" name="edit-info" id="edit-info" value="Edit" onclick="editInfo()">
+                    <input type="button" name="save-info" id="save-info" value="Save" onclick="saveInfo()">
+                </div>
+            </div>
+
+            <!--https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp -->
             <div class="row body">
-
-                <!--https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp -->
-                <div id="patient-info" class="col overlay">
-
-                </div>
-
-                <div id="patient-hist" class ="col overlay">
-
-                </div>
 
                 <div class="col ecg-panel">
 
                 </div>
+
             </div>
 
         </div>
-        
-
     </body>
 </html>
