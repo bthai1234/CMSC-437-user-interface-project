@@ -26,19 +26,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                   <ul class="navbar-nav">
-                    <li class="nav-item patientInfo">
+                    <li class="nav-item">
                         <a id="p-info" class="nav-link" href="#">Patient Info</a>
                       </li>
-                    <li class="nav-item patientHist">
+                    <li class="nav-item">
                       <a id="p-hist" class="nav-link" href="#">Patient History</a>
                     </li>
-                    <li class="nav-item x-rays">
+                    <li class="nav-item">
                         <a id="x-r" class="nav-link" href="#">X-Rays</a>
                     </li>
-                    <li class="nav-item iv-pump">
-                        <a id="iv" class="nav-link" href="#">IV Pump</a>
+                    <li class="nav-item">
+                        <a id="iv" class="nav-link" onclick="openIV()" href="#">IV Pump</a>
                     </li>
-                    <li class="nav-item Ventilator">
+                    <li class="nav-item">
                         <a id="vent" class="nav-link" href="#">Ventilator</a>
                     </li>
                   </ul>
@@ -56,6 +56,32 @@
 
                 </div>
 
+                <div id="iv-pump" class ="overlay">
+                  <a href="javascript:void(0)" class="closebtn" onclick="closeIV()">&times;</a>
+                  <h2 class ="panel-title">IV Pump Control</h2>
+
+                  <div class="overlay-content">
+                    <div class="content">
+                      <label for="rateField"><b>Rate of Infution: </b></label><br>
+                      <span id="rateValue">0/min</span>
+                      <input style="text-align: center;display: none;" id="rateField" type="text" name="rateField"><br>
+                      
+                    </div>
+
+                    <div class="content">
+                      <label for="volumeField"><b>Infusion Volume: </b></label><br>
+                      <span id="volumeValue">0 ml</span>
+                      <input style="text-align: center;display: none;" id="volumeField" type="text" name="volumeField">
+                    </div>
+ 
+                    <div class="content">
+                      <button style="display: none;" id="saveBtn" class="btn" onclick="saveIV()">Save</button>
+                      <button id="editBtn" class="btn edit" onclick="editIV()">Edit</button>
+                    </div>
+
+                  </div>
+                </div>
+                
                 <div class="col ecg-panel">
 
                 </div>
