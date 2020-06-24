@@ -1,6 +1,6 @@
 
 function openIV() {
-    document.getElementById("main-content").style.paddingLeft = "250px";
+    document.getElementById("main-content").style.paddingLeft = "260px";
     document.getElementById("iv-sidebar").style.width = "250px";
     document.getElementById("iv-sidebar").style.display = "block";
     document.getElementById("iv-toggle-on").style.display = "none";

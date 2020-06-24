@@ -19,12 +19,13 @@
     cursor: pointer;
     width: 100%;
   }
-  
+
   #sideBarErrorMsg{
     color: red;
   }
 
   #iv-sidebar {
+    display: none;
     z-index: -1;
     position: fixed;
     width: 0px;
@@ -36,11 +37,13 @@
     color: #fff;
     transition: all 0.0s;
     overflow-y: hidden;
+    padding: 10px;
   }
   
 
 
 #main-content{
   width: 100%;
+
 }
   
