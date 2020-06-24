@@ -27,7 +27,7 @@
 #iv-sidebar {
   display: none;
   z-index: -1;
-  position: fixed;
+  position: absolute;
   width: 0px;
   height: 100vh;
   text-align: center;
@@ -39,8 +39,6 @@
   overflow-y: hidden;
   padding: 10px;
 }
-
-
 
 #main-content{
 width: 100%;
