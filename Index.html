@@ -19,60 +19,58 @@
         <script src="scripts.js"></script>
     </head>
     <body>
-      <!--Main body-->
-      <div id="main-content">
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
-          <a class="navbar-brand" href="https://www.umbc.edu"><img src="UMBCretrievers_LOGO.jpg" width="40" hight="40"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            
-          <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a id="p-info-toggle" class="nav-link" href="#">Patient Info</a>
-              </li>
-              <li class="nav-item">
-                <a id="p-hist-toggle" class="nav-link" href="#">Patient History</a>
-              </li>
-              <li class="nav-item">
-                <a id="x-ray-toggle" class="nav-link" href="#">X-Rays</a>
-                <a id="x-ray-toggle-off" style="display: none;" class="nav-link" href="#" onclick="">X-Rays</a>
-              </li>
-              <li class="nav-item">
-                <a id="iv-toggle-on" class="nav-link" href="#" onclick="openIV()">IV Pump</a>
-                <a id="iv-toggle-off" style="display: none;" class="nav-link" href="#" onclick="closeIV()">IV Pump</a>
-              </li>
-              <li class="nav-item">
-                <a id="vent-toggle-on" class="nav-link" href="#" onclick="">Ventilator</a>
-                <a id="vent-toggle-off" style="display: none;" class="nav-link" href="#" onclick="">Ventilator</a>
-              </li>
-            </ul>
-          </div>  
-        </nav>
-        <!--end of navbar section-->
-
-        <div class="container-fluid">
-          <!--ECG Data-->
-        </div>
-      </div>
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://www.umbc.edu"><img src="UMBCretrievers_LOGO.jpg" width="40" hight="40"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a id="p-info-toggle" class="nav-link" href="#">Patient Info</a>
+            </li>
+            <li class="nav-item">
+              <a id="p-hist-toggle" class="nav-link" href="#">Patient History</a>
+            </li>
+            <li class="nav-item">
+              <a id="x-ray-toggle" class="nav-link" href="#">X-Rays</a>
+              <a id="x-ray-toggle-off" style="display: none;" class="nav-link" href="#" onclick="">X-Rays</a>
+            </li>
+            <li class="nav-item">
+              <a id="iv-toggle-on" class="nav-link" href="#" onclick="openIV()">IV Pump</a>
+              <a id="iv-toggle-off" style="display: none;" class="nav-link" href="#" onclick="closeIV()">IV Pump</a>
+            </li>
+            <li class="nav-item">
+              <a id="vent-toggle-on" class="nav-link" href="#" onclick="">Ventilator</a>
+              <a id="vent-toggle-off" style="display: none;" class="nav-link" href="#" onclick="">Ventilator</a>
+            </li>
+          </ul>
+        </div>  
+      </nav>
+      <!--/Navbar-->
 
       <!--https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp -->
+      <!--Patien Info sidebar-->
       <div id="patient-info" class="col overlay">
 
       </div>
 
+      <!--Patien history sidebar-->
       <div id="patient-hist" class ="col overlay">
 
       </div>
 
+      <!--xray sidebar-->
+      <div id="patient-hist" class ="col overlay">
 
+      </div>
+     
       <!-- IV Pump Sidebar -->
       <div id="iv-sidebar">
         <div class="sidebar-header">           
-          <h2>IV Pump Control</h2>
+          <h3>IV Pump Control</h3>
         </div>
         
         <div class="list-group">
@@ -95,12 +93,15 @@
         </div>
       </div>
       <!-- /#IV Pump sidebar -->
-
-
-
-      
-
-
-     
+        
+      <!--Main Content-->
+      <div id="main-content" class="">
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
+          nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
+          est laborum."
+        </p>
+      </div>
     </body>
 </html>

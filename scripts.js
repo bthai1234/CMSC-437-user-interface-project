@@ -30,7 +30,7 @@ function saveIV() {
     var newRate = document.getElementById("rateField").value;
     var newVol = document.getElementById("volumeField").value;
     document.getElementById("rateValue").innerHTML = "" + newRate + "/min";
-    document.getElementById("volumeValue").innerHTML = "" + newVol + "ml";
+    document.getElementById("volumeValue").innerHTML = "" + newVol + " ml";
     
     document.getElementById("rateField").style.display = "none";
     document.getElementById("volumeField").style.display = "none";
