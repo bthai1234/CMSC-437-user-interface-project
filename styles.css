@@ -19,6 +19,10 @@
     cursor: pointer;
     width: 100%;
   }
+  
+  #sideBarErrorMsg{
+    color: red;
+  }
 
   #iv-sidebar {
     z-index: -1;
@@ -33,6 +37,7 @@
     transition: all 0.0s;
     overflow-y: hidden;
   }
+  
 
 
 #main-content{

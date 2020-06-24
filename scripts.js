@@ -29,14 +29,22 @@ function editIV() {
 function saveIV() {
     var newRate = document.getElementById("rateField").value;
     var newVol = document.getElementById("volumeField").value;
-    document.getElementById("rateValue").innerHTML = "" + newRate + "/min";
-    document.getElementById("volumeValue").innerHTML = "" + newVol + " ml";
-    
-    document.getElementById("rateField").style.display = "none";
-    document.getElementById("volumeField").style.display = "none";
-    document.getElementById("rateValue").style.display = "block";
-    document.getElementById("volumeValue").style.display = "block";
 
-    document.getElementById("saveBtn").style.display = "none";
-    document.getElementById("editBtn").style.display = "block";
+    if(/\d+/.test(newRate) && /\d+/.test(newVol)){
+        document.getElementById("rateValue").innerHTML = "" + newRate + "/min";
+        document.getElementById("volumeValue").innerHTML = "" + newVol + " ml";
+        
+        document.getElementById("rateField").style.display = "none";
+        document.getElementById("volumeField").style.display = "none";
+        document.getElementById("rateValue").style.display = "block";
+        document.getElementById("volumeValue").style.display = "block";
+    
+        document.getElementById("saveBtn").style.display = "none";
+        document.getElementById("sideBarErrorMsg").style.display = "none";
+        document.getElementById("editBtn").style.display = "block";
+    }else{
+        document.getElementById("sideBarErrorMsg").style.display = "block";
+    }
+
+
 } 
