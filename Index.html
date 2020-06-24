@@ -43,8 +43,8 @@
               <a id="iv-toggle-off" class="nav-link" style="display: none;" href="#" onclick="closeIV()">IV Pump</a>
            </li>
             <li class="nav-item">
-              <a id="vent-toggle-on" class="nav-link" data-toggle="collapse" href="#" onclick="">Ventilator</a>
-              <a id="vent-toggle-off" class="nav-link" style="display: none;" href="#" onclick="">Ventilator</a>
+              <a id="vent-toggle-on" class="nav-link" href="#" onclick="openVent()">Ventilator</a>
+              <a id="vent-toggle-off" class="nav-link" style="display: none;" href="#" onclick="closeVent()">Ventilator</a>
             </li>
           </ul>
         </div>  
@@ -86,13 +86,39 @@
           </div>
 
           <div class="sidebar-content">
-            <button style="display: none;" id="saveBtn" class="btn" onclick="saveIV()">Save</button>
-            <button id="editBtn" class="btn edit" onclick="editIV()">Edit</button>
-            <h4 id="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
+            <button style="display: none;" id="ivSaveBtn" class="btn" onclick="saveIV()">Save</button>
+            <button id="ivEditBtn" class="btn edit" onclick="editIV()">Edit</button>
+            <h4 id="ivSideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
           </div>
       </div>
       <!-- /End of IV Pump sidebar section --> 
-        
+     
+      <!-- Ventilator Sidebar -->
+      <div id="ventilator-sidebar">
+        <div class="sidebar-header">           
+          <h3>Ventilator Control</h3>
+        </div>
+
+          <div class="sidebar-content">
+            <label for="volField"><b>Volume of Oxygen: </b></label><br>
+            <span id="volValue">0 cc</span>
+            <input style="display: none;" id="volField" type="text" name="volField">
+          </div>
+
+          <div class="sidebar-content">
+            <label for="ventRateField"><b>Rate: </b></label><br>
+            <span id="ventRateValue">0/min</span>
+            <input style="display: none;" id="ventRateField" type="text" name="ventRateField">
+          </div>
+
+          <div class="sidebar-content">
+            <button style="display: none;" id="ventSaveBtn" class="btn" onclick="saveVent()">Save</button>
+            <button id="ventEditBtn" class="btn edit" onclick="editVent()">Edit</button>
+            <h4 id="ventSideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
+          </div>
+      </div>
+      <!-- /End of Ventilator sidebar section -->   
+
       <!--Main Content-->
       <div id="main-content" class="">
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 

@@ -20,11 +20,31 @@
   width: 100%;
 }
 
-#sideBarErrorMsg{
+#ivSideBarErrorMsg{
   color: red;
 }
 
 #iv-sidebar {
+  display: none;
+  z-index: -1;
+  position: absolute;
+  width: 0px;
+  height: 100vh;
+  text-align: center;
+  top: 63px;
+  left: 0;
+  background: #343a40;
+  color: #fff;
+  transition: all 0.0s;
+  overflow-y: hidden;
+  padding: 10px;
+}
+
+#ventSideBarErrorMsg{
+  color: red;
+}
+
+#ventilator-sidebar {
   display: none;
   z-index: -1;
   position: absolute;
