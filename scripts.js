@@ -38,7 +38,7 @@ function saveIV() {
     var newVol = document.getElementById("volumeField").value;
 
     if(/\d+/.test(newRate) && /\d+/.test(newVol)){
-        document.getElementById("rateValue").innerHTML = "" + newRate + "/min";
+        document.getElementById("rateValue").innerHTML = "" + newRate + " min";
         document.getElementById("volumeValue").innerHTML = "" + newVol + " ml";
         
         document.getElementById("rateField").style.display = "none";
@@ -99,7 +99,7 @@ function saveVent() {
 
     if(/\d+/.test(newRate) && /\d+/.test(newVol)){
         document.getElementById("volValue").innerHTML = "" + newVol + " cc";
-        document.getElementById("ventRateValue").innerHTML = "" + newRate + "/min";
+        document.getElementById("ventRateValue").innerHTML = "" + newRate + " min";
         
         document.getElementById("volField").style.display = "none";
         document.getElementById("ventRateField").style.display = "none";
