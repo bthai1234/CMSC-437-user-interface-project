@@ -222,7 +222,38 @@ function openHistory() {
 function openXray() {
     closeAll();
 
-    // TODO
+    document.getElementById("main-content").style.paddingLeft = "280px";
+    document.getElementById("x-ray-sidebar").style.width = "270px";
+    document.getElementById("x-ray-sidebar").style.display = "block";
+    document.getElementById("x-ray-toggle-on").style.display = "none";
+    document.getElementById("x-ray-toggle-off").style.display = "block";
+}
+
+function closeXray() {
+    document.getElementById("main-content").style.paddingLeft = "0px";
+    document.getElementById("x-ray-sidebar").style.width = "0px";
+    document.getElementById("x-ray-sidebar").style.display = "none";
+    document.getElementById("x-ray-toggle-on").style.display = "block";
+    document.getElementById("x-ray-toggle-off").style.display = "none";
+}
+
+function xRaySelector(){
+    document.getElementById('xRayFileSelector').click();
+}
+
+function changeXrayImg(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#x-ray-img')
+                .attr('src', e.target.result)
+                .width(220)
+                .height(275);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 
 function closeAll() {
