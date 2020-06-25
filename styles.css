@@ -82,3 +82,13 @@ div#patient-info-form .row {
 #patient-info.sidebar {
     padding: 0;
 }
+
+#x-ray-img{
+    border-style: outset;
+    border-color: darkgrey;
+    border-width: 5px;
+}
+
+@media only screen and (max-width: 570px) {
+
+  }

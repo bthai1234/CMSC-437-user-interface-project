@@ -136,8 +136,31 @@
         <div id="patient-history" class="sidebar" style="display: none;">
         </div>
 
-        <div id="xray" class="sidebar" style="display: none;">
+        <!-- X-Ray sidebar Section-->
+        <div id="x-ray-sidebar" class="sidebar" style="display: none;">
+          <div class="sidebar-header">
+            <h3>Patient X-Ray</h3>
+          </div>
+
+          <div class="sidebar-content">
+            <div class="row no-gutters align-items-center">
+              <div class="col-sm">
+                <img id="x-ray-img" src="Upload X-Ray tmp.jpg" width="220" height="275">
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-content">
+            <div class="row no-gutters align-items-center">
+              <div class="col-sm">
+                <input id="uploadX-Ray" class="btn" type="button" value="Upload X-Ray Image" onclick="xRaySelector()">
+                <input id="xRayFileSelector" type='file' style="display: none;" onchange="changeXrayImg(this)">
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!--End of X-Ray sidebar Section-->
 
         <!-- IV Pump Sidebar -->
         <div id="iv-sidebar" class="sidebar" style="display: none;">
