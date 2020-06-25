@@ -146,15 +146,33 @@
             </div>
 
             <div class="sidebar-content">
-                <label for="rateField"><b>Rate of Infution: </b></label><br>
-                <span id="rateValue">0/min</span>
-                <input style="display: none;" id="rateField" type="text" name="rateField">
+              <div class="row no-gutters align-items-center">
+                <div class="col-sm">
+                  <label for="rateField"><b>Rate of Infution: </b></label><br>
+                </div>
+              </div>
+
+              <div class="row no-gutters align-items-center">
+                <div class="col-sm">
+                  <span id="rateValue">0/min</span>
+                  <input style="display: none;" id="rateField" type="text" name="rateField">
+                </div>
+              </div>
 
             </div>
+
             <div class="sidebar-content">
-                <label for="volumeField"><b>Infusion Volume: </b></label><br>
-                <span id="volumeValue">0 ml</span>
-                <input style="display: none;" id="volumeField" type="text" name="volumeField">
+              <div class="row no-gutters align-items-center">
+                <div class="col-sm">
+                  <label for="volumeField"><b>Infusion Volume: </b></label><br>
+                </div>
+              </div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-sm">
+                  <span id="volumeValue">0 ml</span>
+                  <input style="display: none;" id="volumeField" type="text" name="volumeField">
+                </div>
+              </div>
             </div>
 
             <div class="sidebar-content">
@@ -170,24 +188,43 @@
           <div class="sidebar-header">  
             <h3>Ventilator Control</h3>         
           </div>
+    
+          <div class="sidebar-content">
+              <div class="row no-gutters align-items-center">
+                <div class="col-sm">
+                  <label for="volField"><b>Volume of Oxygen: </b></label>
+                </div>
+              </div>
 
-            <div class="sidebar-content">
-              <label for="volField"><b>Volume of Oxygen: </b></label><br>
-              <span id="volValue">0 cc</span>
-              <input style="display: none;" id="volField" type="text" name="volField">
+              <div class="row no-gutters align-items-center">
+                <div class="col-sm">  
+                  <span id="volValue" class="value">0 cc</span>
+                  <input style="display: none;" id="volField" type="text" name="volField">
+                </div>
+              </div>
+          </div>
+
+          <div class="sidebar-content">
+            <div class="row no-gutters align-items-center">
+              <div class="col-sm">
+                <label for="ventRateField"><b>Rate: </b></label><br>
+              </div>
             </div>
 
-            <div class="sidebar-content">
-              <label for="ventRateField"><b>Rate: </b></label><br>
-              <span id="ventRateValue">0/min</span>
-              <input style="display: none;" id="ventRateField" type="text" name="ventRateField">
+            <div class="row no-gutters align-items-center">
+              <div class="col-sm">
+                <span id="ventRateValue">0/min</span>
+                <input style="display: none;" id="ventRateField" type="text" name="ventRateField">  
+              </div>
             </div>
-            
-            <div class="sidebar-content">
-              <button id="ventEditBtn" class="btn edit" onclick="editVent()">Edit</button>
-              <button style="display: none;" id="ventSaveBtn" class="btn" onclick="saveVent()">Save</button>
-              <h4 id="ventSideBarErrorMsg" class="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
-            </div>
+          </div>
+          
+          <div class="sidebar-content">
+            <button id="ventEditBtn" class="btn" onclick="editVent()">Edit</button>
+            <button style="display: none;" id="ventSaveBtn" class="btn" onclick="saveVent()">Save</button>
+            <h4 id="ventSideBarErrorMsg" class="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
+          </div>
+          
         </div>
         <!-- /End of Ventilator sidebar section -->   
 
