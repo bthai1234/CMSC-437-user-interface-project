@@ -24,8 +24,6 @@ div#patient-info-form .row {
     margin: 0;
 }
 
-
-
 .sidebar-header{
     font-weight: bold;
     color: black;
@@ -47,13 +45,11 @@ div#patient-info-form .row {
     width: 100%;
 }
 
-#sideBarErrorMsg{
+#sideBarErrorMsg, .sideBarErrorMsg{
     color: red;
-.sideBarErrorMsg{
-  color: red;
 }
 
-#iv-sidebar,
+#iv-sidebar, 
 .sidebar {
     display: none;
     z-index: -1;
@@ -67,11 +63,8 @@ div#patient-info-form .row {
     color: #fff;
     transition: all 0.0s;
     overflow-y: hidden;
-    padding: 10px;
+    /*padding: 10px;*/
 }
-
-
-
 
 #main-content{
     width: 100%;

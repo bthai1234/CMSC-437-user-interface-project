@@ -164,24 +164,14 @@ function saveIV() {
 }
 
 function openVent() {
-    //close any other open sidebars first
-    document.getElementById("iv-sidebar").style.display = "none";
-    //document.getElementById("info-sidebar").style.width = "0px";
-    //add more side bars to close as they get developed
-    
-    //switch any navbar buttons toggle-off buttons to toggle-on
-    document.getElementById("iv-toggle-off").style.display = "none";
-    document.getElementById("iv-toggle-on").style.display = "block";
-    //add other sidebars as they get developed
-
+    closeAll();
+ 
+    document.getElementById("main-content").style.paddingLeft = "280px";
+    document.getElementById("ventilator-sidebar").style.width = "270px";
+    document.getElementById("ventilator-sidebar").style.display = "block";
     document.getElementById("vent-toggle-on").style.display = "none";
     document.getElementById("vent-toggle-off").style.display = "block";
-
-    document.getElementById("main-content").style.paddingLeft = "260px";
-    document.getElementById("ventilator-sidebar").style.width = "250px";
-    document.getElementById("ventilator-sidebar").style.display = "block";
-
-  }
+}
 
 function closeVent() {
     document.getElementById("main-content").style.paddingLeft = "0px";
@@ -223,13 +213,13 @@ function saveVent() {
     }
 } 
 
-function openXray() {
+function openHistory() {
     closeAll();
 
     // TODO
 }
 
-function openVent() {
+function openXray() {
     closeAll();
 
     // TODO
