@@ -29,29 +29,31 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="p-info-toggle-on" class="nav-link" onclick="openInfo()" href="#">Patient Info</a>
-                        <a id="p-info-toggle-off" class="nav-link" style="display: none;" onclick="closeInfo()" href="#">Patient Info</a>
+                        <a id="p-info-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openInfo()">Patient Info</a>
+                        <a id="p-info-toggle-off" class="toggle-off nav-link" href="#" onclick="closeInfo()" style="display: none;">Patient Info</a>
                     </li>
                     <li class="nav-item">
-                        <a id="p-hist-toggle" class="nav-link" href="#">Patient History</a>
+                        <a id="p-hist-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openHistory()">Patient History</a>
+                        <a id="p-hist-toggle-off" class="toggle-off nav-link" href="#" onclick="closeHistory()" style="display: none;">Patient History</a>
                     </li>
                     <li class="nav-item">
-                        <a id="x-ray-toggle-on" class="nav-link" href="#">X-Rays</a>
-                        <a id="x-ray-toggle-off" class="nav-link" style="display: none;" href="#" onclick="">X-Rays</a>
+                        <a id="x-ray-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openXray()">X-Rays</a>
+                        <a id="x-ray-toggle-off" class="toggle-off nav-link" href="#" onclick="closeXray()" style="display: none;">X-Rays</a>
                     </li>
                     <li class="nav-item">
-                        <a id="iv-toggle-on" class="nav-link" href="#" onclick="openIV()">IV Pump</a>
-                        <a id="iv-toggle-off" class="nav-link" style="display: none;" href="#" onclick="closeIV()">IV Pump</a>
+                        <a id="iv-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openIV()">IV Pump</a>
+                        <a id="iv-toggle-off" class="toggle-off nav-link" href="#" onclick="closeIV()" style="display: none;">IV Pump</a>
                     </li>
                     <li class="nav-item">
-                        <a id="vent-toggle-on" class="nav-link" data-toggle="collapse" href="#" onclick="">Ventilator</a>
-                        <a id="vent-toggle-off" class="nav-link" style="display: none;" href="#" onclick="">Ventilator</a>
+                        <a id="vent-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openVent()">Ventilator</a>
+                        <a id="vent-toggle-off" class="toggle-off nav-link" href="#" onclick="closeVent()" style="display: none;">Ventilator</a>
                     </li>
                 </ul>
             </div>  
         </nav>
         <!--/Navbar-->
 
+        <!-- patient info side bar -->
         <div id="patient-info" class="sidebar" style="display: none;">
             <div class="sidebar-header">
                 <h3>Patient Info</h3>
@@ -129,9 +131,16 @@
                 </div>
             </div>
         </div>
+        <!-- end patient info sidebar -->
+
+        <div id="patient-history" class="sidebar" style="display: none;">
+        </div>
+
+        <div id="xray" class="sidebar" style="display: none;">
+        </div>
 
         <!-- IV Pump Sidebar -->
-        <div id="iv-sidebar">
+        <div id="iv-sidebar" class="sidebar" style="display: none;">
             <div class="sidebar-header">
                 <h3>IV Pump Control</h3>
             </div>
@@ -156,13 +165,16 @@
         </div>
         <!-- /End of IV Pump sidebar section --> 
 
+        <div id="ventilator" class="sidebar" style="display: none;">
+        </div>
+
         <!--Main Content-->
         <div id="main-content" class="">
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
             et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
             ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
-            est laborum."
+            est laborum.
             </p>
         </div>
     </body>

@@ -5,13 +5,15 @@ $(document).ready(function () {
 
 /** Open when someone clicks on the span element */
 function openInfo() {
+    closeAll();
+
     $("#main-content").css("padding-left", "260px");
     $("#patient-info").css({
         "width": "250px",
         "display": "block"
     });
-    $("#p-info-toggle-on").toggle();
-    $("#p-info-toggle-off").toggle();
+    $("#p-info-toggle-on").hide();
+    $("#p-info-toggle-off").show();
 }
 
 /** Close when someone clicks on the "x" symbol inside the overlay */
@@ -21,51 +23,27 @@ function closeInfo() {
         "width": "0",
         "display": "none"
     });
-    $("#p-info-toggle-on").toggle();
-    $("#p-info-toggle-off").toggle();
+    $("#p-info-toggle-on").show();
+    $("#p-info-toggle-off").hide();
 }
-
-function parseInt(value) {
-    try {
-        return Number.parseInt(value.replace(/[^0-9]/g, ''));
-    } catch {
-        return NaN;
-    }
-}
-
-function formatDateMDY(date) {
-    var d = new Date(date),
-        month = "" + (d.getMonth() + 1),
-        day = "" + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) {
-        month = "0" + month;
-    }
-    if (day.length < 2) {
-        day = "0" + day;
-    }
-
-    return [month, day, year].join("/");
-}
-function formatDateYMD(date) {
-    var d = new Date(date),
-        month = "" + (d.getMonth() + 1),
-        day = "" + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) {
-        month = "0" + month;
-    }
-    if (day.length < 2) {
-        day = "0" + day;
-    }
-
-    return [year, month, day].join("-");
-}
-
 
 function saveInfo() {
+    function formatDateMDY(date) {
+        var d = new Date(date),
+            month = "" + (d.getMonth() + 1),
+            day = "" + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) {
+            month = "0" + month;
+        }
+        if (day.length < 2) {
+            day = "0" + day;
+        }
+
+        return [month, day, year].join("/");
+    }
+
     var $firstName = $("#first-name .field input").val();
     var $lastName = $("#last-name .field input").val();
     var $birthDate = new Date(Date.parse($("#birth-date .field input").val() + " EDT"));
@@ -83,13 +61,36 @@ function saveInfo() {
     $("#phone .value").text($phone);
     $("#address .value").html($address);
 
-    $("#patient-info-form .field").toggle();
-    $("#patient-info-form .value").toggle();
-    $("input#edit-info").toggle();
-    $("input#save-info").toggle();
+    $("#patient-info-form .field").show();
+    $("#patient-info-form .value").hide();
+    $("input#edit-info").show();
+    $("input#save-info").hide();
 }
 
 function editInfo() {
+    function formatDateYMD(date) {
+        var d = new Date(date),
+            month = "" + (d.getMonth() + 1),
+            day = "" + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) {
+            month = "0" + month;
+        }
+        if (day.length < 2) {
+            day = "0" + day;
+        }
+
+        return [year, month, day].join("-");
+    }
+    function parseInt(value) {
+        try {
+            return Number.parseInt(value.replace(/[^0-9]/g, ''));
+        } catch {
+            return NaN;
+        }
+    }
+
     var $firstName = $("#first-name .value").text().trim();
     var $lastName = $("#last-name .value").text().trim();
     var $birthDate = new Date(Date.parse($("#birth-date .value").text().trim()));
@@ -106,13 +107,15 @@ function editInfo() {
     $("#phone .field input").val($phone);
     $("#address .field textarea").val($address);
 
-    $("#patient-info-form .value").toggle();
-    $("#patient-info-form .field").toggle();
-    $("input#edit-info").toggle();
-    $("input#save-info").toggle();
+    $("#patient-info-form .value").hide();
+    $("#patient-info-form .field").show();
+    $("input#edit-info").hide();
+    $("input#save-info").show();
 }
 
 function openIV() {
+    closeAll();
+
     document.getElementById("main-content").style.paddingLeft = "260px";
     document.getElementById("iv-sidebar").style.width = "250px";
     document.getElementById("iv-sidebar").style.display = "block";
@@ -160,3 +163,26 @@ function saveIV() {
     }
 }
 
+function openHistory() {
+    closeAll();
+
+    // TODO
+}
+
+function openXray() {
+    closeAll();
+
+    // TODO
+}
+
+function openVent() {
+    closeAll();
+
+    // TODO
+}
+
+function closeAll() {
+    $("body > div.sidebar").hide();
+    $(".nav-item .toggle-on").show();
+    $(".nav-item .toggle-off").hide();
+}
