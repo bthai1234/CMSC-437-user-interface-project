@@ -7,9 +7,9 @@ $(document).ready(function () {
 function openInfo() {
     closeAll();
 
-    $("#main-content").css("padding-left", "260px");
+    $("#main-content").css("padding-left", "280px");
     $("#patient-info").css({
-        "width": "250px",
+        "width": "270px",
         "display": "block"
     });
     $("#p-info-toggle-on").hide();
@@ -56,13 +56,13 @@ function saveInfo() {
     $("#first-name .value").text($firstName);
     $("#last-name .value").text($lastName);
     $("#birth-date .value").text(formatDateMDY($birthDate));
-    $("#height .value").text($height);
-    $("#weight .value").text($weight);
+    $("#height .value").text($height + " ft.");
+    $("#weight .value").text($weight + " lb.");
     $("#phone .value").text($phone);
     $("#address .value").html($address);
 
-    $("#patient-info-form .field").show();
-    $("#patient-info-form .value").hide();
+    $("#patient-info-form .value").show();
+    $("#patient-info-form .field").hide();
     $("input#edit-info").show();
     $("input#save-info").hide();
 }
@@ -116,8 +116,8 @@ function editInfo() {
 function openIV() {
     closeAll();
 
-    document.getElementById("main-content").style.paddingLeft = "260px";
-    document.getElementById("iv-sidebar").style.width = "250px";
+    document.getElementById("main-content").style.paddingLeft = "280px";
+    document.getElementById("iv-sidebar").style.width = "270px";
     document.getElementById("iv-sidebar").style.display = "block";
     document.getElementById("iv-toggle-on").style.display = "none";
     document.getElementById("iv-toggle-off").style.display = "block";

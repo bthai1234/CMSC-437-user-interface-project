@@ -1,30 +1,29 @@
-
-.col-sm-5, .col-sm {
-    border: 1px solid #f00;
-}
-#address {
-    border: 2px solid #0f0;
-}
-
-#patient-info-buttons {
-    clear: both;
-}
-
-div#patient-info-form .row > div {
+div#patient-info-form .row div.col-sm-5,
+div#patient-info-form .row div.col-sm {
     text-align: left;
 }
 div#patient-info-form .row {
-    height: 30px;
+    margin: 3px 0;
 }
 
 #patient-info-form .field input,
 #patient-info-form .field textarea {
-    width: 180px;
+    width: 155px;
+    padding: 0 auto;
+    margin: 0 auto;
 }
-#patient-info-form textarea {
+#patient-info-form .field textarea {
     resize: none;
-    height: 85px;
 }
+#patient-info-form .row .value {
+    margin: 3px 0;
+}
+#patient-info-buttons .col input {
+    width: 50px;
+    height: 35px;
+    margin: 0;
+}
+
 
 
 .sidebar-header{
