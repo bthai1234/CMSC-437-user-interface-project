@@ -138,8 +138,8 @@ function editIV() {
     document.getElementById("rateField").style.display = "block";
     document.getElementById("volumeField").style.display = "block";
 
-    document.getElementById("saveBtn").style.display = "block";
-    document.getElementById("editBtn").style.display = "none";
+    document.getElementById("ivSaveBtn").style.display = "block";
+    document.getElementById("ivEditBtn").style.display = "none";
 }
 
 function saveIV() {
@@ -147,27 +147,81 @@ function saveIV() {
     var newVol = document.getElementById("volumeField").value;
 
     if(/\d+/.test(newRate) && /\d+/.test(newVol)){
-        document.getElementById("rateValue").innerHTML = "" + newRate + "/min";
+        document.getElementById("rateValue").innerHTML = "" + newRate + " min";
         document.getElementById("volumeValue").innerHTML = "" + newVol + " ml";
 
         document.getElementById("rateField").style.display = "none";
         document.getElementById("volumeField").style.display = "none";
         document.getElementById("rateValue").style.display = "block";
         document.getElementById("volumeValue").style.display = "block";
-
-        document.getElementById("saveBtn").style.display = "none";
-        document.getElementById("sideBarErrorMsg").style.display = "none";
-        document.getElementById("editBtn").style.display = "block";
+    
+        document.getElementById("ivSaveBtn").style.display = "none";
+        document.getElementById("ivSideBarErrorMsg").style.display = "none";
+        document.getElementById("ivEditBtn").style.display = "block";
     }else{
-        document.getElementById("sideBarErrorMsg").style.display = "block";
+        document.getElementById("ivSideBarErrorMsg").style.display = "block";
     }
 }
 
-function openHistory() {
-    closeAll();
+function openVent() {
+    //close any other open sidebars first
+    document.getElementById("iv-sidebar").style.display = "none";
+    //document.getElementById("info-sidebar").style.width = "0px";
+    //add more side bars to close as they get developed
+    
+    //switch any navbar buttons toggle-off buttons to toggle-on
+    document.getElementById("iv-toggle-off").style.display = "none";
+    document.getElementById("iv-toggle-on").style.display = "block";
+    //add other sidebars as they get developed
 
-    // TODO
+    document.getElementById("vent-toggle-on").style.display = "none";
+    document.getElementById("vent-toggle-off").style.display = "block";
+
+    document.getElementById("main-content").style.paddingLeft = "260px";
+    document.getElementById("ventilator-sidebar").style.width = "250px";
+    document.getElementById("ventilator-sidebar").style.display = "block";
+
+  }
+
+function closeVent() {
+    document.getElementById("main-content").style.paddingLeft = "0px";
+    document.getElementById("ventilator-sidebar").style.width = "0px";
+    document.getElementById("ventilator-sidebar").style.display = "none";
+    document.getElementById("vent-toggle-on").style.display = "block";
+    document.getElementById("vent-toggle-off").style.display = "none";
 }
+
+function editVent() {
+    document.getElementById("volValue").style.display = "none";
+    document.getElementById("ventRateValue").style.display = "none";
+
+    document.getElementById("volField").style.display = "block";
+    document.getElementById("ventRateField").style.display = "block";
+
+    document.getElementById("ventSaveBtn").style.display = "block";
+    document.getElementById("ventEditBtn").style.display = "none";
+}
+
+function saveVent() {
+    var newVol = document.getElementById("volField").value;
+    var newRate = document.getElementById("ventRateField").value;
+
+    if(/\d+/.test(newRate) && /\d+/.test(newVol)){
+        document.getElementById("volValue").innerHTML = "" + newVol + " cc";
+        document.getElementById("ventRateValue").innerHTML = "" + newRate + " min";
+        
+        document.getElementById("volField").style.display = "none";
+        document.getElementById("ventRateField").style.display = "none";
+        document.getElementById("volValue").style.display = "block";
+        document.getElementById("ventRateValue").style.display = "block";
+    
+        document.getElementById("ventSaveBtn").style.display = "none";
+        document.getElementById("ventSideBarErrorMsg").style.display = "none";
+        document.getElementById("ventEditBtn").style.display = "block";
+    }else{
+        document.getElementById("ventSideBarErrorMsg").style.display = "block";
+    }
+} 
 
 function openXray() {
     closeAll();

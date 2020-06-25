@@ -49,6 +49,8 @@ div#patient-info-form .row {
 
 #sideBarErrorMsg{
     color: red;
+.sideBarErrorMsg{
+  color: red;
 }
 
 #iv-sidebar,
@@ -67,6 +69,9 @@ div#patient-info-form .row {
     overflow-y: hidden;
     padding: 10px;
 }
+
+
+
 
 #main-content{
     width: 100%;
