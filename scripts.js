@@ -1,22 +1,37 @@
-/* Open when someone clicks on the span element */
+$(document).ready(function () {
+    $("#patient-info-form .field").hide();
+    $("input#save-info").hide();
+});
+
+/** Open when someone clicks on the span element */
 function openInfo() {
-    document.getElementById("patient-info").style.width = "25%";
+    $("#main-content").css("padding-left", "260px");
+    $("#patient-info").css({
+        "width": "250px",
+        "display": "block"
+    });
+    $("#p-info-toggle-on").toggle();
+    $("#p-info-toggle-off").toggle();
 }
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
+/** Close when someone clicks on the "x" symbol inside the overlay */
 function closeInfo() {
-    document.getElementById("patient-info").style.width = "0";
+    $("#main-content").css("padding-left", "0");
+    $(".sidebar#patient-info").css({
+        "width": "0",
+        "display": "none"
+    });
+    $("#p-info-toggle-on").toggle();
+    $("#p-info-toggle-off").toggle();
 }
 
 function parseInt(value) {
     try {
         return Number.parseInt(value.replace(/[^0-9]/g, ''));
-    }
-    catch {
+    } catch {
         return NaN;
     }
 }
-
 
 function formatDateMDY(date) {
     var d = new Date(date),
@@ -97,7 +112,51 @@ function editInfo() {
     $("input#save-info").toggle();
 }
 
-$(document).ready(function () {
-    $(".field").hide();
-    $("input#save-info").hide();
-});
+function openIV() {
+    document.getElementById("main-content").style.paddingLeft = "260px";
+    document.getElementById("iv-sidebar").style.width = "250px";
+    document.getElementById("iv-sidebar").style.display = "block";
+    document.getElementById("iv-toggle-on").style.display = "none";
+    document.getElementById("iv-toggle-off").style.display = "block";
+}
+
+function closeIV() {
+    document.getElementById("main-content").style.paddingLeft = "0px";
+    document.getElementById("iv-sidebar").style.width = "0px";
+    document.getElementById("iv-sidebar").style.display = "none";
+    document.getElementById("iv-toggle-on").style.display = "block";
+    document.getElementById("iv-toggle-off").style.display = "none";
+}
+
+function editIV() {
+    document.getElementById("rateValue").style.display = "none";
+    document.getElementById("volumeValue").style.display = "none";
+
+    document.getElementById("rateField").style.display = "block";
+    document.getElementById("volumeField").style.display = "block";
+
+    document.getElementById("saveBtn").style.display = "block";
+    document.getElementById("editBtn").style.display = "none";
+}
+
+function saveIV() {
+    var newRate = document.getElementById("rateField").value;
+    var newVol = document.getElementById("volumeField").value;
+
+    if(/\d+/.test(newRate) && /\d+/.test(newVol)){
+        document.getElementById("rateValue").innerHTML = "" + newRate + "/min";
+        document.getElementById("volumeValue").innerHTML = "" + newVol + " ml";
+
+        document.getElementById("rateField").style.display = "none";
+        document.getElementById("volumeField").style.display = "none";
+        document.getElementById("rateValue").style.display = "block";
+        document.getElementById("volumeValue").style.display = "block";
+
+        document.getElementById("saveBtn").style.display = "none";
+        document.getElementById("sideBarErrorMsg").style.display = "none";
+        document.getElementById("editBtn").style.display = "block";
+    }else{
+        document.getElementById("sideBarErrorMsg").style.display = "block";
+    }
+}
+

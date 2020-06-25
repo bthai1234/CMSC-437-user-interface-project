@@ -1,6 +1,20 @@
 
-div#patient-info-form.container .row .col-sm {
+.col-sm-5, .col-sm {
+    border: 1px solid #f00;
+}
+#address {
+    border: 2px solid #0f0;
+}
+
+#patient-info-buttons {
+    clear: both;
+}
+
+div#patient-info-form .row > div {
     text-align: left;
+}
+div#patient-info-form .row {
+    height: 30px;
 }
 
 #patient-info-form .field input,
@@ -9,70 +23,57 @@ div#patient-info-form.container .row .col-sm {
 }
 #patient-info-form textarea {
     resize: none;
+    height: 85px;
 }
 
-/* ********************* *
- * BEGIN Overlay styling *
- * based on https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp
- * ********************* */
 
-/* The Overlay (background) */
-.overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */
-    height: 100%;
-    width: 0;
-    position: fixed; /* Stay in place */
-    /* z-index: 1; /1* Sit on top *1/ */
-    left: 0;
-    top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+.sidebar-header{
+    font-weight: bold;
+    color: black;
+    background-color: #f5ca5c;
+    text-align: center;
+    padding: 4px;
 }
 
-/* Position the content inside the overlay */
-.overlay-content {
-    position: relative;
-    top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+.sidebar-content{
+    margin: 20px;   
 }
 
-/* The navigation links inside the overlay */
-.overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+.sidebar-content .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
-/* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
+#sideBarErrorMsg{
+    color: red;
 }
 
-/* Position the close button (top right corner) */
-.overlay .closebtn {
+#iv-sidebar,
+.sidebar {
+    display: none;
+    z-index: -1;
     position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    width: 0px;
+    height: 100vh;
+    text-align: center;
+    top: 63px;
+    left: 0;
+    background: #343a40;
+    color: #fff;
+    transition: all 0.0s;
+    overflow-y: hidden;
+    padding: 10px;
 }
 
-/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
+#main-content{
+    width: 100%;
+    transition: all 0.0s;
 }
 
-/* ********************* *
- *  END Overlay styling  *
- * ********************* */
+#patient-info.sidebar {
+    padding: 0;
+}
