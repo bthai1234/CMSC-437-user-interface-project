@@ -24,6 +24,13 @@ div#patient-info-form .row {
     margin: 0;
 }
 
+#ventilator-sidebar input,
+#iv-sidebar input{
+    width: 155px;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
 .sidebar-header{
     font-weight: bold;
     color: black;
@@ -33,7 +40,8 @@ div#patient-info-form .row {
 }
 
 .sidebar-content{
-    margin: 20px;   
+    margin: 20px;
+    text-align: center;  
 }
 
 .sidebar-content .btn {
