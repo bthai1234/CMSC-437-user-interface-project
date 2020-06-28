@@ -8,11 +8,13 @@
         <!-- CSS only -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <!-- JS, Popper.js, and jQuery         -->
+        <!-- JS, Popper.js, jQuery, and Chart.js         -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://rawgit.com/nnnick/Chart.js/v1.0.2/Chart.min.js"></script>
+
 
         <link rel="stylesheet" href="styles.css">
         <script src="scripts.js"></script>
@@ -138,26 +140,26 @@
 
         <!-- X-Ray sidebar Section-->
         <div id="x-ray-sidebar" class="sidebar" style="display: none;">
-          <div class="sidebar-header">
-            <h3>Patient X-Ray</h3>
-          </div>
-
-          <div class="sidebar-content">
-            <div class="row no-gutters align-items-center">
-              <div class="col-sm">
-                <img id="x-ray-img" src="Upload X-Ray tmp.jpg" width="220" height="275">
-              </div>
+            <div class="sidebar-header">
+                <h3>Patient X-Ray</h3>
             </div>
-          </div>
 
-          <div class="sidebar-content">
-            <div class="row no-gutters align-items-center">
-              <div class="col-sm">
-                <input id="uploadX-Ray" class="btn" type="button" value="Upload X-Ray Image" onclick="xRaySelector()">
-                <input id="xRayFileSelector" type='file' style="display: none;" onchange="changeXrayImg(this)">
-              </div>
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <img id="x-ray-img" src="Upload X-Ray tmp.jpg" width="220" height="275">
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <input id="uploadX-Ray" class="btn" type="button" value="Upload X-Ray Image" onclick="xRaySelector()">
+                        <input id="xRayFileSelector" type='file' style="display: none;" onchange="changeXrayImg(this)">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!--End of X-Ray sidebar Section-->
@@ -169,33 +171,33 @@
             </div>
 
             <div class="sidebar-content">
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm">
-                  <label for="rateField"><b>Rate of Infution: </b></label><br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="rateField"><b>Rate of Infution: </b></label><br>
+                    </div>
                 </div>
-              </div>
 
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm">
-                  <span id="rateValue">0/min</span>
-                  <input style="display: none;" id="rateField" type="text" name="rateField">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <span id="rateValue">0/min</span>
+                        <input style="display: none;" id="rateField" type="text" name="rateField">
+                    </div>
                 </div>
-              </div>
 
             </div>
 
             <div class="sidebar-content">
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm">
-                  <label for="volumeField"><b>Infusion Volume: </b></label><br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="volumeField"><b>Infusion Volume: </b></label><br>
+                    </div>
                 </div>
-              </div>
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm">
-                  <span id="volumeValue">0 ml</span>
-                  <input style="display: none;" id="volumeField" type="text" name="volumeField">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <span id="volumeValue">0 ml</span>
+                        <input style="display: none;" id="volumeField" type="text" name="volumeField">
+                    </div>
                 </div>
-              </div>
             </div>
 
             <div class="sidebar-content">
@@ -205,60 +207,55 @@
             </div>
         </div>
         <!-- /End of IV Pump sidebar section --> 
-     
+
         <!-- Ventilator Sidebar -->
         <div id="ventilator-sidebar" class="sidebar">
-          <div class="sidebar-header">  
-            <h3>Ventilator Control</h3>         
-          </div>
-    
-          <div class="sidebar-content">
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm">
-                  <label for="volField"><b>Volume of Oxygen: </b></label>
-                </div>
-              </div>
-
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm">  
-                  <span id="volValue" class="value">0 cc</span>
-                  <input style="display: none;" id="volField" type="text" name="volField">
-                </div>
-              </div>
-          </div>
-
-          <div class="sidebar-content">
-            <div class="row no-gutters align-items-center">
-              <div class="col-sm">
-                <label for="ventRateField"><b>Rate: </b></label><br>
-              </div>
+            <div class="sidebar-header">  
+                <h3>Ventilator Control</h3>         
             </div>
 
-            <div class="row no-gutters align-items-center">
-              <div class="col-sm">
-                <span id="ventRateValue">0/min</span>
-                <input style="display: none;" id="ventRateField" type="text" name="ventRateField">  
-              </div>
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="volField"><b>Volume of Oxygen: </b></label>
+                    </div>
+                </div>
+
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">  
+                        <span id="volValue" class="value">0 cc</span>
+                        <input style="display: none;" id="volField" type="text" name="volField">
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div class="sidebar-content">
-            <button id="ventEditBtn" class="btn" onclick="editVent()">Edit</button>
-            <button style="display: none;" id="ventSaveBtn" class="btn" onclick="saveVent()">Save</button>
-            <h4 id="ventSideBarErrorMsg" class="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
-          </div>
-          
+
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="ventRateField"><b>Rate: </b></label><br>
+                    </div>
+                </div>
+
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <span id="ventRateValue">0/min</span>
+                        <input style="display: none;" id="ventRateField" type="text" name="ventRateField">  
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <button id="ventEditBtn" class="btn" onclick="editVent()">Edit</button>
+                <button style="display: none;" id="ventSaveBtn" class="btn" onclick="saveVent()">Save</button>
+                <h4 id="ventSideBarErrorMsg" class="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
+            </div>
+
         </div>
         <!-- /End of Ventilator sidebar section -->   
 
         <!--Main Content-->
         <div id="main-content" class="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
-            est laborum.
-            </p>
+            <img id="ecg-image" src="ecgImage1.png">
         </div>
     </body>
 </html>

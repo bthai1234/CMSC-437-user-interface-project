@@ -74,9 +74,16 @@ div#patient-info-form .row {
     /*padding: 10px;*/
 }
 
-#main-content{
+#main-content {
+    height: 0;
     width: 100%;
     transition: all 0.0s;
+    z-index: -5;
+}
+
+#ecg-image {
+    height: 640px;
+    width: 768px;
 }
 
 #patient-info.sidebar {
@@ -91,4 +98,4 @@ div#patient-info-form .row {
 
 @media only screen and (max-width: 570px) {
 
-  }
+}

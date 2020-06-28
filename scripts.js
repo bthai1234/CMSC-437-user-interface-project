@@ -1,6 +1,11 @@
 $(document).ready(function () {
     $("#patient-info-form .field").hide();
     $("input#save-info").hide();
+
+    function swapEcgImageTimer() {
+        setInterval(swapEcgImage, 1000);
+    }
+    swapEcgImageTimer();
 });
 
 /** Open when someone clicks on the span element */
@@ -83,13 +88,6 @@ function editInfo() {
 
         return [year, month, day].join("-");
     }
-    function parseInt(value) {
-        try {
-            return Number.parseInt(value.replace(/[^0-9]/g, ''));
-        } catch {
-            return NaN;
-        }
-    }
 
     var $firstName = $("#first-name .value").text().trim();
     var $lastName = $("#last-name .value").text().trim();
@@ -154,7 +152,7 @@ function saveIV() {
         document.getElementById("volumeField").style.display = "none";
         document.getElementById("rateValue").style.display = "block";
         document.getElementById("volumeValue").style.display = "block";
-    
+
         document.getElementById("ivSaveBtn").style.display = "none";
         document.getElementById("ivSideBarErrorMsg").style.display = "none";
         document.getElementById("ivEditBtn").style.display = "block";
@@ -165,7 +163,7 @@ function saveIV() {
 
 function openVent() {
     closeAll();
- 
+
     document.getElementById("main-content").style.paddingLeft = "280px";
     document.getElementById("ventilator-sidebar").style.width = "270px";
     document.getElementById("ventilator-sidebar").style.display = "block";
@@ -199,12 +197,12 @@ function saveVent() {
     if(/\d+/.test(newRate) && /\d+/.test(newVol)){
         document.getElementById("volValue").innerHTML = "" + newVol + " cc";
         document.getElementById("ventRateValue").innerHTML = "" + newRate + " min";
-        
+
         document.getElementById("volField").style.display = "none";
         document.getElementById("ventRateField").style.display = "none";
         document.getElementById("volValue").style.display = "block";
         document.getElementById("ventRateValue").style.display = "block";
-    
+
         document.getElementById("ventSaveBtn").style.display = "none";
         document.getElementById("ventSideBarErrorMsg").style.display = "none";
         document.getElementById("ventEditBtn").style.display = "block";
@@ -261,3 +259,17 @@ function closeAll() {
     $(".nav-item .toggle-on").show();
     $(".nav-item .toggle-off").hide();
 }
+
+function swapEcgImage() {
+    currentImage = currentImage == images.length ? 1 : currentImage + 1;
+    document.getElementById("ecg-image").src = images[currentImage - 1];
+    console.log(document.getElementById("ecg-image").src)
+}
+
+var images = [];
+var currentImage = 0;
+for (var i = 1; i <= 4; i++) {
+    images.push(`ecgImage${i}.png`);
+}
+
+
