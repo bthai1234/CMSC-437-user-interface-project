@@ -56,7 +56,7 @@ function saveInfo() {
     var $weight = $("#weight .field input").val();
     var $phone = $("#phone .field input").val();
     var $address = $("#address .field textarea").val().split("\n").join("<br>");
-
+    var $gender = $("#gender .field :selected").val();
 
     $("#first-name .value").text($firstName);
     $("#last-name .value").text($lastName);
@@ -65,6 +65,7 @@ function saveInfo() {
     $("#weight .value").text($weight + " lb.");
     $("#phone .value").text($phone);
     $("#address .value").html($address);
+    $("#gender .value").html($gender);
 
     $("#patient-info-form .value").show();
     $("#patient-info-form .field").hide();
@@ -96,6 +97,7 @@ function editInfo() {
     var $weight = parseInt($("#weight .value").text().trim());
     var $phone = $("#phone .value").text().trim();
     var $address = $("#address .value").html().split("<br>").join("\n").trim();
+    var $gender = $("#gender .value").text().trim();
 
     $("#first-name .field input").val($firstName);
     $("#last-name .field input").val($lastName);
@@ -104,6 +106,7 @@ function editInfo() {
     $("#weight .field input").val($weight);
     $("#phone .field input").val($phone);
     $("#address .field textarea").val($address);
+    $("#gender .field select").val($gender);
 
     $("#patient-info-form .value").hide();
     $("#patient-info-form .field").show();
