@@ -266,7 +266,6 @@ function closeAll() {
 function swapEcgImage() {
     currentImage = currentImage == images.length ? 1 : currentImage + 1;
     document.getElementById("ecg-image").src = images[currentImage - 1];
-    console.log(document.getElementById("ecg-image").src)
 }
 
 var images = [];
