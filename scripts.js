@@ -326,6 +326,10 @@ function saveMeds() {
     $("#medications .value ul li").each(function () {
         $(this).remove();
     });
+
+    if ($("#medications .value ul").html() === undefined) {
+        $("#medications .value").html("<ul></ul>");
+    }
     for (var i = 0; i < counter; i++) {
         var med = meds[i];
         $("#medications .value ul").append(`<li>${med}</li>\n`);
@@ -339,6 +343,67 @@ function saveMeds() {
     $("#medications .field").hide();
     $("#edit-meds").show();
     $("#patient-history input.edit-buttons").hide();
+}
+
+
+function editConds() {
+    var meds = {};
+    var counter = 0;
+    $("#conditions .value ul li").each(function () {
+        meds[counter++] = $(this).text();
+    });
+
+    var addToDiv = $("#conditions .field").html("");
+    for (var i = 0; i < counter; i++) {
+        var med = meds[i];
+        addToDiv.append(`<input type="text" name="med-${i}" id="med-${i}" value="${med}">`);
+        addToDiv.append(`<input type="button" id="del-med-${i}" value="-" onclick="delCond('med-${i}')" class="plus-minus">`);
+    }
+
+    $("#conditions .value").hide();
+    $("#conditions .field").show();
+    $("#edit-conds").hide();
+    $("#patient-history #conditions input.edit-buttons").show();
+}
+
+function addConds() {
+    var n = $("#conditions .field input[type=text]").length;
+    $("#conditions .field").append(`<input type="text" name="cond-${n}" id="cond-${n}">`);
+    $("#conditions .field").append(`<input type="button" id="del-cond-${n}" value="-" onclick="delCond('med-${n}')" class="plus-minus">`);
+}
+
+function delCond(medId) {
+    $(`#${medId}`).remove();
+    $(`#del-${medId}`).remove();
+}
+
+function saveConds() {
+    var meds = {};
+    var counter = 0;
+    $("#conditions .field input[type=text]").each(function () {
+        meds[counter++] = $(this).val();
+    });
+    $("#conditions .value ul li").each(function () {
+        $(this).remove();
+    });
+
+    if ($("#conditions .value ul").html() === undefined) {
+        $("#conditions .value").html("<ul></ul>");
+    }
+
+    for (var i = 0; i < counter; i++) {
+        var med = meds[i];
+        $("#conditions .value ul").append(`<li>${med}</li>\n`);
+    }
+    if (counter == 0) {
+        $("#conditions .value ul").remove();
+        $("#conditions .value").text("None");
+    }
+
+    $("#conditions .value").show();
+    $("#conditions .field").hide();
+    $("#edit-conds").show();
+    $("#patient-history #conditions input.edit-buttons").hide();
 }
 
 

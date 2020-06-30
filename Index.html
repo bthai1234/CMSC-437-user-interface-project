@@ -172,12 +172,17 @@
                 <div class="row no-gutters">
                     <div class="col-sm-5 font-weight-bold">Conditions:</div>
                     <div id="conditions" class="col-sm">
-                        <div class="value">None</div>
-                        <div class="field">
-                            <div class="medical-condition-list">
-                                <input type="text" name="cond-desc1" id="cond-desc1">
+                        <div class="value">
+                            <ul>
+                                <li>Nightmares</li>
+                            </ul>
+                        </div>
+                        <div class="field"></div>
+                        <div class="row button-control justify-content-center">
+                            <div class="col">
+                                <input type="button" name="edit-conds" id="edit-conds" value="Edit" onclick="editConds()">
+                                <input type="button" name="save-conds" id="save-conds" value="Save" onclick="saveConds()" class="edit-buttons"><input type="button" name="add-meds" id="add-meds" value="+" onclick="addConds()" class="edit-buttons plus-minus">
                             </div>
-                            <input type="button" name="add-condition" id="add-condition" value="+">
                         </div>
                     </div>
                 </div>

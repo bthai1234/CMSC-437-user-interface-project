@@ -29,12 +29,12 @@ div.sidebar .row.no-gutters .value ul {
     padding-left: 3px;
 }
 
-div.sidebar #medications .field input {
+div.sidebar #patient-history-form .field input {
     width: 100px;
 }
 
 .button-control input.plus-minus,
-div.sidebar #medications .field input.plus-minus {
+div.sidebar #patient-history-form .field input.plus-minus {
     width: 25px;
 }
 
