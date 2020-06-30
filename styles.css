@@ -99,10 +99,14 @@ div#patient-info-form .row {
 .vital-section{
     border-style: outset;
     border-color: darkgrey;
-    border-width: 2px;
+    border-width: 3px;
     overflow-y: hidden;
     overflow-x: hidden;
+    margin-left: 10px;
+}
 
+#bpBtn{
+    margin: 5px;
 }
 
 
