@@ -96,6 +96,13 @@ div#patient-info-form .row {
     border-width: 5px;
 }
 
+.vital-section{
+    border-style: outset;
+    border-color: black;
+    border-width: 5px;
+}
+
+
 @media only screen and (max-width: 570px) {
 
 }
