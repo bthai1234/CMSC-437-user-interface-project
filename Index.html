@@ -1,45 +1,327 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="styles.css">
-        <script src="scripts.js"></script>
         <meta charset="utf-8">
         <title>Central ICU Patient Monitoring System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
         <!-- CSS only -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-        <!-- JS, Popper.js, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- JS, Popper.js, jQuery, and Chart.js         -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://rawgit.com/nnnick/Chart.js/v1.0.2/Chart.min.js"></script>
+
+
+        <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js"></script>
     </head>
+
     <body>
-        <div class="container">
-            <div class="navbar">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="https://www.umbc.edu"><img src="UMBCretrievers_LOGO.jpg" width="40" hight="40"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a id="p-info-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openInfo()">Patient Info</a>
+                        <a id="p-info-toggle-off" class="toggle-off nav-link" href="#" onclick="closeInfo()" style="display: none;">Patient Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="p-hist-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openHistory()">Patient History</a>
+                        <a id="p-hist-toggle-off" class="toggle-off nav-link" href="#" onclick="closeHistory()" style="display: none;">Patient History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="x-ray-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openXray()">X-Rays</a>
+                        <a id="x-ray-toggle-off" class="toggle-off nav-link" href="#" onclick="closeXray()" style="display: none;">X-Rays</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="iv-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openIV()">IV Pump</a>
+                        <a id="iv-toggle-off" class="toggle-off nav-link" href="#" onclick="closeIV()" style="display: none;">IV Pump</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="vent-toggle-on"  class="toggle-on  nav-link" href="#" onclick="openVent()">Ventilator</a>
+                        <a id="vent-toggle-off" class="toggle-off nav-link" href="#" onclick="closeVent()" style="display: none;">Ventilator</a>
+                    </li>
+                </ul>
+            </div>  
+        </nav>
+        <!--/Navbar-->
+
+        <!-- patient info side bar -->
+        <div id="patient-info" class="sidebar" style="display: none;">
+            <div class="sidebar-header">
+                <h3>Patient Info</h3>
+            </div>
+
+            <div id="patient-info-form" class="text-light">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-5 font-weight-bold">First Name:</div>
+                    <div id="first-name" class="col-sm">
+                        <div class="value">Matthew</div>
+                        <div class="field">
+                            <input type="text" name="first-name-edit" id="first-name-edit">
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-5 font-weight-bold">Last Name:</div>
+                    <div id="last-name" class="col-sm">
+                        <div class="value">Denaburg</div>
+                        <div class="field">
+                            <input type="text" name="last-name-edit" id="last-name-edit">
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-5 font-weight-bold">Birth Date:</div>
+                    <div id="birth-date" class="col-sm">
+                        <div class="value">04/01/2020</div>
+                        <div class="field">
+                            <input type="date" name="birth-date-edit" id="birth-date-edit">
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-5 font-weight-bold">Height:</div>
+                    <div id="height" class="col-sm">
+                        <div class="value">6 ft.</div>
+                        <div class="field">
+                            <input type="number" name="height-edit" id="height-edit">
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-5 font-weight-bold">Weight:</div>
+                    <div id="weight" class="col-sm">
+                        <div class="value">100 lb.</div>
+                        <div class="field">
+                            <input type="number" name="weight-edit" id="weight-edit">
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm-5 font-weight-bold">Phone:</div>
+                    <div id="phone" class="col-sm">
+                        <div class="value">410-555-1000</div>
+                        <div class="field">
+                            <input type="tel" name="phone-edit" id="name-edit" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-sm-5 font-weight-bold">Address:</div>
+                    <div id="address" class="col-sm">
+                        <div class="value">UMBC<br>1000 Hilltop Cir<br>Baltimore, MD 21250</div>
+                        <div class="field">
+                            <textarea name="address-edit" rows="3" cols="30" id="address"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div id="patient-info-buttons" class="row justify-content-center">
+                    <div class="col">
+                        <input type="button" name="edit-info" id="edit-info" value="Edit" onclick="editInfo()">
+                        <input type="button" name="save-info" id="save-info" value="Save" onclick="saveInfo()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end patient info sidebar -->
+
+        <!-- X-Ray sidebar Section-->
+        <div id="x-ray-sidebar" class="sidebar" style="display: none;">
+            <div class="sidebar-header">
+                <h3>Patient X-Ray</h3>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <img id="x-ray-img" src="Upload X-Ray tmp.jpg" width="220" height="275">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <input id="uploadX-Ray" class="btn" type="button" value="Upload X-Ray Image" onclick="xRaySelector()">
+                        <input id="xRayFileSelector" type='file' style="display: none;" onchange="changeXrayImg(this)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--End of X-Ray sidebar Section-->
+
+        <!-- IV Pump Sidebar -->
+        <div id="iv-sidebar" class="sidebar" style="display: none;">
+            <div class="sidebar-header">
+                <h3>IV Pump Control</h3>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="rateField"><b>Rate of Infution: </b></label><br>
+                    </div>
+                </div>
+
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <span id="rateValue">0/min</span>
+                        <input style="display: none;" id="rateField" type="text" name="rateField">
+                    </div>
+                </div>
 
             </div>
 
-            <div class="row body">
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="volumeField"><b>Infusion Volume: </b></label><br>
+                    </div>
+                </div>
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <span id="volumeValue">0 ml</span>
+                        <input style="display: none;" id="volumeField" type="text" name="volumeField">
+                    </div>
+                </div>
+            </div>
 
-                <!--https://www.w3schools.com/howto/howto_js_fullscreen_overlay.asp -->
-                <div id="patient-info" class="col overlay">
+            <div class="sidebar-content">
+                <button style="display: none;" id="ivSaveBtn" class="btn" onclick="saveIV()">Save</button>
+                <button id="ivEditBtn" class="btn edit" onclick="editIV()">Edit</button>
+                <h4 id="ivSideBarErrorMsg" class="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
+            </div>
+        </div>
+        <!-- /End of IV Pump sidebar section --> 
 
+        <!-- Ventilator Sidebar -->
+        <div id="ventilator-sidebar" class="sidebar">
+            <div class="sidebar-header">  
+                <h3>Ventilator Control</h3>         
+            </div>
+
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="volField"><b>Volume of Oxygen: </b></label>
+                    </div>
                 </div>
 
-                <div id="patient-hist" class ="col overlay">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">  
+                        <span id="volValue" class="value">0 cc</span>
+                        <input style="display: none;" id="volField" type="text" name="volField">
+                    </div>
+                </div>
+            </div>
 
+            <div class="sidebar-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <label for="ventRateField"><b>Rate: </b></label><br>
+                    </div>
                 </div>
 
-                <div class="col ecg-panel">
-
+                <div class="row no-gutters align-items-center">
+                    <div class="col-sm">
+                        <span id="ventRateValue">0/min</span>
+                        <input style="display: none;" id="ventRateField" type="text" name="ventRateField">  
+                    </div>
                 </div>
+            </div>
+
+            <div class="sidebar-content">
+                <button id="ventEditBtn" class="btn" onclick="editVent()">Edit</button>
+                <button style="display: none;" id="ventSaveBtn" class="btn" onclick="saveVent()">Save</button>
+                <h4 id="ventSideBarErrorMsg" class="sideBarErrorMsg" style="display: none;">Invalid Input Enter Integer value!</h4>
             </div>
 
         </div>
-        
+        <!-- /End of Ventilator sidebar section -->   
 
+        <!-- Patien History side bar -->
+<div id="patient-history" class="sidebar" style="display: none;">
+  <div class="sidebar-header">
+      <h3>Patient History</h3>
+  </div>
+
+  <div id="patient-history-form" class="text-light">
+      
+      <!--////////////////////////////////////////////////-->
+      <hr>
+      <div class="row no-gutters align-items-center">
+        <div class="col-sm-5 font-weight-bold">Mental Illness:</div>
+        <div id="mental" class="col-sm">
+            <div class="value" id="mental-value" style="font-size: 8;">Yes or Non</div>
+            <div class="field">
+                <input type="text" name="last-name-edit" id="mental-edit">
+            </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters align-items-center">
+        <div class="col-sm-5 font-weight-bold">Stroke:</div>
+        <div id="stroke" class="col-sm">
+            <div class="value" id="stroke-value">Yes or Non</div>
+            <div class="field">
+                <input type="text" name="last-name-edit" id="stroke-edit">
+            </div>
+        </div>
+        </div>
+
+        <div class="row no-gutters align-items-center">
+            <div class="col-sm-5 font-weight-bold">Cancer:</div>
+            <div id="cancer" class="col-sm">
+                <div class="value" id="cancer-value" style="font-size: 8;">Yes or Non</div>
+                <div class="field">
+                    <input type="text" name="last-name-edit" id="cancer-edit">
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters align-items-center">
+            <div class="col-sm-5 font-weight-bold">Anemia:</div>
+            <div id="anemia" class="col-sm">
+                <div class="value" id="anemia-value" style="font-size: 8;">Yes or Non</div>
+                <div class="field">
+                    <input type="text" name="last-name-edit" id="anemia-edit">
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters align-items-center">
+            <div class="col-sm-5 font-weight-bold">Other:</div>
+            <div id="other" class="col-sm">
+                <div class="value" id="other-value" style="font-size: 8;">cite here</div>
+                <div class="field">
+                    <input type="text" name="last-name-edit" id="other-edit">
+                </div>
+            </div>
+        </div>
+      <!--///////////////////////////////////-->
+      <br>
+      <div id="patient-history-buttons" class="row justify-content-center">
+          <div class="col">
+              <input type="button" name="edit-hist" id="edit-history" value="Edit" onclick="editHist()">
+              <input type="button" name="save-hist" id="save-history" value="Save" onclick="saveHist()">
+          </div>
+      </div>
+  </div>
+</div>
+<!-- end Patien History sidebar -->
+
+        <!--Main Content-->
+        <div id="main-content" class="">
+            <img id="ecg-image" src="ecgImage1.png">
+        </div>
     </body>
 </html>
