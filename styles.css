@@ -99,6 +99,20 @@ div#patient-info-form .row {
     border-width: 5px;
 }
 
+.vital-section{
+    border-style: outset;
+    border-color: darkgrey;
+    border-width: 3px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-left: 10px;
+}
+
+#bpBtn{
+    margin: 5px;
+}
+
+
 @media only screen and (max-width: 570px) {
 
 }

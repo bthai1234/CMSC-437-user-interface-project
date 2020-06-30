@@ -1,15 +1,54 @@
+var pulse = setInterval(pulse, 1000);
+var vital = setInterval(vitals, 3000);
+
+
+
 $(document).ready(function () {
     $("#patient-info-form .field").hide();
     $("input#save-info").hide();
+<<<<<<< HEAD
     $("#patient-history-form .field").hide();
     $("input#save-history").hide();
+=======
+    var spo2 = parseInt(Math.random() * (101 - 96) + 96);
+    var temp = parseInt(Math.random() * (100 - 96) + 96);
+    var bplow = parseInt(Math.random() * (94 - 77) + 77);
+    var bphigh = parseInt(Math.random() * (130 - 118) + 118);
+    document.getElementById("SpO2").innerHTML = " " + spo2 + "%";
+    document.getElementById("Temperature").innerHTML = " " + temp + " mmHg";
+    document.getElementById("Bp").innerHTML = " " + bphigh + "/" + bplow +" mmHg";
+
+>>>>>>> Vital-Signs
 
     function swapEcgImageTimer() {
         setInterval(swapEcgImage, 1000);
     }
+
     swapEcgImageTimer();
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> Vital-Signs
 });
+
+function pulse(){
+    pulse = parseInt(Math.random() * (90 - 70) + 70);
+    document.getElementById("pulse").innerHTML = " " + pulse + " /min";
+}
+
+function vitals() {
+    spo2 = parseInt(Math.random() * (101 - 96) + 96);
+    temp = parseInt(Math.random() * (100 - 96) + 96);
+    document.getElementById("SpO2").innerHTML = " " + spo2 + "%";
+    document.getElementById("Temperature").innerHTML = " " + temp + " mmHg";
+}
+
+function takeBloodPressure(){
+    var bplow = parseInt(Math.random() * (94 - 77) + 77);
+    var bphigh = parseInt(Math.random() * (130 - 118) + 118);
+    document.getElementById("Bp").innerHTML = " " + bphigh + "/" + bplow +" mmHg";
+}
 
 /** Open when someone clicks on the span element */
 function openInfo() {
