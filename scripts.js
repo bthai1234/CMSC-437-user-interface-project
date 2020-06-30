@@ -1,12 +1,34 @@
+var pulse = setInterval(pulse, 1000);
+var spo2 = parseInt(Math.random() * (101 - 96) + 96);
+var bplow = parseInt(Math.random() * (94 - 77) + 77);
+var bphigh = parseInt(Math.random() * (130 - 118) + 118);
+var temp = parseInt(Math.random() * (100 - 96) + 96);
+
+
+
+
 $(document).ready(function () {
     $("#patient-info-form .field").hide();
     $("input#save-info").hide();
+    document.getElementById("Temperature").innerHTML = " " + temp + "F";
+    document.getElementById("SpO2").innerHTML = " " + spo2 + "%";
+    document.getElementById("Bp").innerHTML = " " + bphigh + "/" + bplow +" mmHg";
+
 
     function swapEcgImageTimer() {
         setInterval(swapEcgImage, 1000);
     }
+
+
+
     swapEcgImageTimer();
+
 });
+
+function pulse() {
+    var pulse = parseInt(Math.random() * (90 - 70) + 70);
+    document.getElementById("pulse").innerHTML = " " + pulse + " /min";
+}
 
 /** Open when someone clicks on the span element */
 function openInfo() {

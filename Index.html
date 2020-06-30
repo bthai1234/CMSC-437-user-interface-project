@@ -264,19 +264,29 @@
         <!-- /End of Ventilator sidebar section -->   
 
         <!--Main Content-->
-        <div id="main-content" class="">
+        <div id="main-content" class="container-fluid">
             <div classs="row">
-                <div class="col-sm">
+                <div class="col-lg-3">
                     <img id="ecg-image" src="ecgImage1.png">
                 </div>
-                <div id="vitals" class="col-sm">
-                    <div id="pulse" class="row vital-section">
-                        <h3>Pulse</h3>
-                        <p></p>
+                
+                <div id="vitals" class="col-lg-3">
+                    <div class="row vital-section">
+                        <h3 class="col-xs">pulse: </h3>
+                        <h3 id="pulse" class="col-xs"></h3>
                     </div>
-
-
-
+                    <div class="row vital-section">
+                        <h3 class="col-xs">Temperature: </h3>
+                        <h3 id="Temperature" class="col-xs"></h3>
+                    </div>
+                    <div class="row vital-section">
+                        <h3 class="col-xs">SpO2: </h3>
+                        <h3 id="SpO2" class="col-xs"></h3>
+                    </div>
+                    <div class="row vital-section">
+                        <h3 class="col-xs">Blood Pressure: </h3>
+                        <h3 id="Bp" class="col-xs"></h3>
+                    </div>
                 </div>
             </div>
         </div>
