@@ -263,6 +263,75 @@
         </div>
         <!-- /End of Ventilator sidebar section -->   
 
+        <!-- Patien History side bar -->
+<div id="patient-history" class="sidebar" style="display: none;">
+  <div class="sidebar-header">
+      <h3>Patient History</h3>
+  </div>
+
+  <div id="patient-history-form" class="text-light">
+      
+      <!--////////////////////////////////////////////////-->
+      <hr>
+      <div class="row no-gutters align-items-center">
+        <div class="col-sm-5 font-weight-bold">Mental Illness:</div>
+        <div id="mental" class="col-sm">
+            <div class="value" id="mental-value" style="font-size: 8;">Yes or Non</div>
+            <div class="field">
+                <input type="text" name="last-name-edit" id="mental-edit">
+            </div>
+        </div>
+      </div>
+
+      <div class="row no-gutters align-items-center">
+        <div class="col-sm-5 font-weight-bold">Stroke:</div>
+        <div id="stroke" class="col-sm">
+            <div class="value" id="stroke-value">Yes or Non</div>
+            <div class="field">
+                <input type="text" name="last-name-edit" id="stroke-edit">
+            </div>
+        </div>
+        </div>
+
+        <div class="row no-gutters align-items-center">
+            <div class="col-sm-5 font-weight-bold">Cancer:</div>
+            <div id="cancer" class="col-sm">
+                <div class="value" id="cancer-value" style="font-size: 8;">Yes or Non</div>
+                <div class="field">
+                    <input type="text" name="last-name-edit" id="cancer-edit">
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters align-items-center">
+            <div class="col-sm-5 font-weight-bold">Anemia:</div>
+            <div id="anemia" class="col-sm">
+                <div class="value" id="anemia-value" style="font-size: 8;">Yes or Non</div>
+                <div class="field">
+                    <input type="text" name="last-name-edit" id="anemia-edit">
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters align-items-center">
+            <div class="col-sm-5 font-weight-bold">Other:</div>
+            <div id="other" class="col-sm">
+                <div class="value" id="other-value" style="font-size: 8;">cite here</div>
+                <div class="field">
+                    <input type="text" name="last-name-edit" id="other-edit">
+                </div>
+            </div>
+        </div>
+      <!--///////////////////////////////////-->
+      <br>
+      <div id="patient-history-buttons" class="row justify-content-center">
+          <div class="col">
+              <input type="button" name="edit-hist" id="edit-history" value="Edit" onclick="editHist()">
+              <input type="button" name="save-hist" id="save-history" value="Save" onclick="saveHist()">
+          </div>
+      </div>
+  </div>
+</div>
+<!-- end Patien History sidebar -->
+
         <!--Main Content-->
         <div id="main-content" class="">
             <img id="ecg-image" src="ecgImage1.png">

@@ -1,11 +1,14 @@
 $(document).ready(function () {
     $("#patient-info-form .field").hide();
     $("input#save-info").hide();
+    $("#patient-history-form .field").hide();
+    $("input#save-history").hide();
 
     function swapEcgImageTimer() {
         setInterval(swapEcgImage, 1000);
     }
     swapEcgImageTimer();
+    
 });
 
 /** Open when someone clicks on the span element */
@@ -214,11 +217,6 @@ function saveVent() {
     }
 } 
 
-function openHistory() {
-    closeAll();
-
-    // TODO
-}
 
 function openXray() {
     closeAll();
@@ -275,3 +273,70 @@ for (var i = 1; i <= 4; i++) {
 }
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/** Open when someone clicks on the span element */
+function openHistory() {
+    closeAll();
+
+    $("#main-content").css("padding-left", "280px");
+    $("#patient-history").css({
+        "width": "270px",
+        "display": "block"
+    });
+    $("#p-hist-toggle-on").hide();
+    $("#p-hist-toggle-off").show();
+}
+
+
+/** Close when someone clicks on the "x" symbol inside the overlay */
+function closeHistory() {
+    $("#main-content").css("padding-left", "0");
+    $(".sidebar#patient-history").css({
+        "width": "0",
+        "display": "none"
+    });
+    $("#p-hist-toggle-on").show();
+    $("#p-hist-toggle-off").hide();
+}
+
+function saveHist() {
+    
+    var $mental = document.getElementById("mental-edit").value;
+    var $stroke = document.getElementById("stroke-edit").value;
+    var $cancer = document.getElementById("cancer-edit").value;
+    var $anemia = document.getElementById("anemia-edit").value;
+    var $other = document.getElementById("other-edit").value;
+
+    $("#mental .value").text($mental);
+    $("#stroke .value").text($stroke);
+    $("#cancer .value").text($cancer);
+    $("#anemia .value").text($anemia);
+    $("#other .value").text($other);
+
+
+    $("#patient-history-form .value").show();
+    $("#patient-history-form .field").hide();
+    $("input#edit-history").show();
+    $("input#save-history").hide();
+}
+
+function editHist() {
+    
+    var $mental = $("#mental .value").text().trim();
+    var $stroke = $("#stroke .value").text().trim();
+    var $cancer = $("#cancer .value").text().trim();
+    var $anemia = $("#anemia .value").text().trim();
+    var $other = $("#other .value").text().trim();
+
+    $("#mental .field input").val($mental);
+    $("#stroke .field input").val($stroke);
+    $("#cancer .field input").val($cancer);
+    $("#anemia .field input").val($anemia);
+    $("#other .field input").val($other);
+    
+    $("#patient-history-form .value").hide();
+    $("#patient-history-form .field").show();
+    $("input#edit-history").hide();
+    $("input#save-history").show();
+}

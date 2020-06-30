@@ -1,3 +1,5 @@
+div#patient-history-form .row div.col-sm-5,
+div#patient-history-form .row div.col-sm,
 div#patient-info-form .row div.col-sm-5,
 div#patient-info-form .row div.col-sm {
     text-align: left;
@@ -6,6 +8,7 @@ div#patient-info-form .row {
     margin: 3px 0;
 }
 
+#patient-history-form .field input,
 #patient-info-form .field input,
 #patient-info-form .field textarea {
     width: 155px;
