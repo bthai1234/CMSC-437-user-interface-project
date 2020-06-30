@@ -25,6 +25,14 @@ $(document).ready(function () {
 
 });
 
+
+function retakeVitalRedings{
+    spo2 = parseInt(Math.random() * (101 - 96) + 96);
+    bplow = parseInt(Math.random() * (94 - 77) + 77);
+    bphigh = parseInt(Math.random() * (130 - 118) + 118);
+    temp = parseInt(Math.random() * (100 - 96) + 96);
+}
+
 function pulse() {
     var pulse = parseInt(Math.random() * (90 - 70) + 70);
     document.getElementById("pulse").innerHTML = " " + pulse + " /min";
