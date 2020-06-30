@@ -1,28 +1,46 @@
-div#patient-info-form .row div.col-sm-5,
-div#patient-info-form .row div.col-sm {
+div.sidebar > div.text-light .row div.col-sm-5,
+div.sidebar > div.text-light .row div.col-sm
+{
     text-align: left;
 }
 div#patient-info-form .row {
     margin: 3px 0;
 }
 
-#patient-info-form .field input,
-#patient-info-form .field textarea {
+div.sidebar .field input,
+div.sidebar .field textarea {
     width: 155px;
     padding: 0 auto;
     margin: 0 auto;
 }
-#patient-info-form .field textarea {
+div.sidebar .field textarea {
     resize: none;
 }
-#patient-info-form .row .value {
+div.sidebar .row .value {
     margin: 3px 0;
 }
-#patient-info-buttons .col input {
+.button-control input {
     width: 50px;
-    height: 35px;
     margin: 0;
 }
+
+
+div.sidebar .row.no-gutters .value ul {
+    padding-left: 3px;
+}
+
+div.sidebar #medications .field input {
+    width: 100px;
+}
+
+.button-control input.plus-minus,
+div.sidebar #medications .field input.plus-minus {
+    width: 25px;
+}
+
+
+
+
 
 #ventilator-sidebar input,
 #iv-sidebar input{

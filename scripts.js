@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $("#patient-info-form .field").hide();
-    $("input#save-info").hide();
+    $("#patient-history-form .field").hide();
+    $("input.edit-buttons").hide();
 
     function swapEcgImageTimer() {
         setInterval(swapEcgImage, 1000);
@@ -212,12 +213,28 @@ function saveVent() {
     }else{
         document.getElementById("ventSideBarErrorMsg").style.display = "block";
     }
-} 
+}
 
 function openHistory() {
     closeAll();
 
-    // TODO
+    $("#main-content").css("padding-left", "280px");
+    $("#patient-history").css({
+        "width": "270px",
+        "display": "block"
+    });
+    $("#p-hist-toggle-on").hide();
+    $("#p-hist-toggle-off").show();
+}
+
+function closeHistory() {
+    $("#main-content").css("padding-left", "0");
+    $(".sidebar#patient-history").css({
+        "width": "0",
+        "display": "none"
+    });
+    $("#p-info-toggle-on").show();
+    $("#p-info-toggle-off").hide();
 }
 
 function openXray() {
@@ -265,8 +282,66 @@ function closeAll() {
 
 function swapEcgImage() {
     currentImage = currentImage == images.length ? 1 : currentImage + 1;
-    document.getElementById("ecg-image").src = images[currentImage - 1];
+    // document.getElementById("ecg-image").src = images[currentImage - 1];
+    // TODO
 }
+
+function editMeds() {
+    var meds = {};
+    var counter = 0;
+    $("#medications .value ul li").each(function () {
+        meds[counter++] = $(this).text();
+    });
+
+    var addToDiv = $("#medications .field").html("");
+    for (var i = 0; i < counter; i++) {
+        var med = meds[i];
+        addToDiv.append(`<input type="text" name="med-${i}" id="med-${i}" value="${med}">`);
+        addToDiv.append(`<input type="button" id="del-med-${i}" value="-" onclick="delMed('med-${i}')" class="plus-minus">`);
+    }
+
+    $("#medications .value").hide();
+    $("#medications .field").show();
+    $("#edit-meds").hide();
+    $("#patient-history input.edit-buttons").show();
+}
+
+function addMeds() {
+    var n = $("#medications .field input[type=text]").length;
+    $("#medications .field").append(`<input type="text" name="med-${n}" id="med-${n}">`);
+    $("#medications .field").append(`<input type="button" id="del-med-${n}" value="-" onclick="delMed('med-${n}')" class="plus-minus">`);
+}
+
+function delMed(medId) {
+    $(`#${medId}`).remove();
+    $(`#del-${medId}`).remove();
+}
+
+function saveMeds() {
+    var meds = {};
+    var counter = 0;
+    $("#medications .field input[type=text]").each(function () {
+        meds[counter++] = $(this).val();
+    });
+    $("#medications .value ul li").each(function () {
+        $(this).remove();
+    });
+    for (var i = 0; i < counter; i++) {
+        var med = meds[i];
+        $("#medications .value ul").append(`<li>${med}</li>\n`);
+    }
+    if (counter == 0) {
+        $("#medications .value ul").remove();
+        $("#medications .value").text("None");
+    }
+
+    $("#medications .value").show();
+    $("#medications .field").hide();
+    $("#edit-meds").show();
+    $("#patient-history input.edit-buttons").hide();
+}
+
+
 
 var images = [];
 var currentImage = 0;

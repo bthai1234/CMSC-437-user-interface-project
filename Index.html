@@ -49,7 +49,7 @@
                         <a id="vent-toggle-off" class="toggle-off nav-link" href="#" onclick="closeVent()" style="display: none;">Ventilator</a>
                     </li>
                 </ul>
-            </div>  
+            </div>
         </nav>
         <!--/Navbar-->
 
@@ -135,10 +135,10 @@
                         </div>
                     </div>
                 </div>
-                <div id="patient-info-buttons" class="row justify-content-center">
+                <div class="row button-control justify-content-center">
                     <div class="col">
                         <input type="button" name="edit-info" id="edit-info" value="Edit" onclick="editInfo()">
-                        <input type="button" name="save-info" id="save-info" value="Save" onclick="saveInfo()">
+                        <input type="button" name="save-info" id="save-info" value="Save" onclick="saveInfo()" class="edit-buttons">
                     </div>
                 </div>
             </div>
@@ -146,6 +146,42 @@
         <!-- end patient info sidebar -->
 
         <div id="patient-history" class="sidebar" style="display: none;">
+            <div class="sidebar-header">
+                <h3>Patient History</h3>
+            </div>
+
+            <div id="patient-history-form" class="text-light">
+                <div class="row no-gutters">
+                    <div class="col-sm-5 font-weight-bold">Medications:</div>
+                    <div id="medications" class="col-sm">
+                        <div class="value">
+                            <ul>
+                                <li>Advil</li>
+                                <li>Tums</li>
+                            </ul>
+                        </div>
+                        <div class="field"></div>
+                        <div class="row button-control justify-content-center">
+                            <div class="col">
+                                <input type="button" name="edit-meds" id="edit-meds" value="Edit" onclick="editMeds()">
+                                <input type="button" name="save-meds" id="save-meds" value="Save" onclick="saveMeds()" class="edit-buttons"><input type="button" name="add-meds" id="add-meds" value="+" onclick="addMeds()" class="edit-buttons plus-minus">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-sm-5 font-weight-bold">Conditions:</div>
+                    <div id="conditions" class="col-sm">
+                        <div class="value">None</div>
+                        <div class="field">
+                            <div class="medical-condition-list">
+                                <input type="text" name="cond-desc1" id="cond-desc1">
+                            </div>
+                            <input type="button" name="add-condition" id="add-condition" value="+">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- X-Ray sidebar Section-->
