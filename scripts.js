@@ -6,10 +6,8 @@ var vital = setInterval(vitals, 3000);
 $(document).ready(function () {
     $("#patient-info-form .field").hide();
     $("input#save-info").hide();
-<<<<<<< HEAD
     $("#patient-history-form .field").hide();
     $("input#save-history").hide();
-=======
     var spo2 = parseInt(Math.random() * (101 - 96) + 96);
     var temp = parseInt(Math.random() * (100 - 96) + 96);
     var bplow = parseInt(Math.random() * (94 - 77) + 77);
@@ -18,18 +16,14 @@ $(document).ready(function () {
     document.getElementById("Temperature").innerHTML = " " + temp + " mmHg";
     document.getElementById("Bp").innerHTML = " " + bphigh + "/" + bplow +" mmHg";
 
->>>>>>> Vital-Signs
 
     function swapEcgImageTimer() {
         setInterval(swapEcgImage, 1000);
     }
 
     swapEcgImageTimer();
-<<<<<<< HEAD
     
-=======
 
->>>>>>> Vital-Signs
 });
 
 function pulse(){
