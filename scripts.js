@@ -8,27 +8,26 @@ $(document).ready(function () {
     $("input#save-info").hide();
     $("#patient-history-form .field").hide();
     $("input#save-history").hide();
+
     var spo2 = parseInt(Math.random() * (101 - 96) + 96);
     var temp = parseInt(Math.random() * (100 - 96) + 96);
     var bplow = parseInt(Math.random() * (94 - 77) + 77);
     var bphigh = parseInt(Math.random() * (130 - 118) + 118);
+
     document.getElementById("SpO2").innerHTML = " " + spo2 + "%";
     document.getElementById("Temperature").innerHTML = " " + temp + " mmHg";
     document.getElementById("Bp").innerHTML = " " + bphigh + "/" + bplow +" mmHg";
-
 
     function swapEcgImageTimer() {
         setInterval(swapEcgImage, 1000);
     }
 
     swapEcgImageTimer();
-    
-
 });
 
 function pulse(){
     pulse = parseInt(Math.random() * (90 - 70) + 70);
-    document.getElementById("pulse").innerHTML = " " + pulse + " /min";
+    document.getElementById("pulse").innerHTML = " " + pulse + "/min";
 }
 
 function vitals() {
@@ -306,7 +305,6 @@ for (var i = 1; i <= 4; i++) {
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /** Open when someone clicks on the span element */
 function openHistory() {
@@ -334,7 +332,6 @@ function closeHistory() {
 }
 
 function saveHist() {
-    
     var $mental = document.getElementById("mental-edit").value;
     var $stroke = document.getElementById("stroke-edit").value;
     var $cancer = document.getElementById("cancer-edit").value;
@@ -355,7 +352,6 @@ function saveHist() {
 }
 
 function editHist() {
-    
     var $mental = $("#mental .value").text().trim();
     var $stroke = $("#stroke .value").text().trim();
     var $cancer = $("#cancer .value").text().trim();
@@ -367,7 +363,7 @@ function editHist() {
     $("#cancer .field input").val($cancer);
     $("#anemia .field input").val($anemia);
     $("#other .field input").val($other);
-    
+
     $("#patient-history-form .value").hide();
     $("#patient-history-form .field").show();
     $("input#edit-history").hide();
