@@ -105,8 +105,9 @@ div#patient-info-form .row {
     margin-left: 10px;
 }
 
-#bpBtn{
+#bp-button{
     margin: 5px;
+    margin-left: 10px;
 }
 
 
