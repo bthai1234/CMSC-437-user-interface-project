@@ -112,14 +112,10 @@ div#patient-info-form .row {
     padding: 0 5px;
 }
 
-#bpBtn{
-    margin: 5px;
-}
-
 /* correct the alignment from the border in .vital-section */
 #bpBtnDiv {
-    border: none;
-    padding: 3px;
+    margin: 5px;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 570px) {
