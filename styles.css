@@ -85,8 +85,10 @@ div#patient-info-form .row {
 }
 
 #ecg-image {
-    height: 640px;
-    width: 768px;
+    /*height: 640px;
+    width: 768px;*/
+    height: 50vh;
+    width: 30vw;
 }
 
 #patient-info.sidebar {
@@ -118,6 +120,17 @@ div#patient-info-form .row {
     margin-left: 10px;
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 980px) {
+    #ecg-image {
+        height: 50vh;
+        width: 100vw;
+    }
+}
 
+
+@media only screen and (max-width: 540px) {
+    #ecg-image {
+        height: 50vh;
+        width: 100vw;
+    }
 }
